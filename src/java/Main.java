@@ -1,6 +1,6 @@
-package Java;
+package java;
 
-import Java.singly_linked_list.SinglyLinkedList;
+import java.singly_linked_list.SinglyLinkedList;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,9 +1,10 @@
-package Java.singly_linked_list;
+package java.singly_linked_list;
 
 import java.util.List;
 
 /**
  * The type Singly linked list.
+ * Something similar to: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html
  *
  * @param <T> the type parameter
  */
