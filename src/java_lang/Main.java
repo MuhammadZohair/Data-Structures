@@ -1,6 +1,6 @@
-package java;
+package java_lang;
 
-import java.singly_linked_list.SinglyLinkedList;
+import java_lang.singly_linked_list.SinglyLinkedList;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,13 +17,13 @@ public class Main {
 
         System.out.println(singlyLinkedList.copyToString());
 
-        System.out.println(singlyLinkedList.sizeOfList());
+        System.out.println(singlyLinkedList.size());
 
         singlyLinkedList.delete("Awais");
 
         System.out.println(singlyLinkedList.copyToString());
 
         System.out.println(singlyLinkedList.isEmpty());
-        System.out.println(singlyLinkedList.sizeOfList());
+        System.out.println(singlyLinkedList.size());
     }
 }

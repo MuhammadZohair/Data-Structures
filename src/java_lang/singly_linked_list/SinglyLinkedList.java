@@ -1,29 +1,25 @@
-package java.singly_linked_list;
+package java_lang.singly_linked_list;
 
+import java.util.Iterator;
 import java.util.List;
 
-/**
- * The type Singly linked list.
- * Something similar to: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html
- *
- * @param <T> the type parameter
- */
-public class SinglyLinkedList<T> implements CRUD<T> {
+public class SinglyLinkedList<T> implements Collection<T> {
 
     private int sizeOfList;
-    private boolean isEmpty;
     private Node firstItem;
 
-    /**
-     * Instantiates a new Singly linked list.
-     */
     public SinglyLinkedList() {
         firstItem = new Node();
     }
 
-    /**
-     * @param data
-     */
+    public int size() {
+        return sizeOfList;
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
     public void insert(T data) {
         Node currentNode = new Node(data, null);
 
@@ -46,21 +42,12 @@ public class SinglyLinkedList<T> implements CRUD<T> {
         }
     }
 
-    /**
-     * @param list
-     */
     public void insertAll(List<T> list) {
         for (T currentItem : list) {
             insert(currentItem);
         }
     }
 
-    /**
-     * @param oldValue
-     * @param newValue
-     * @return
-     */
-    @Override
     public boolean update(T oldValue, T newValue) {
 
         Node node = firstItem;
@@ -74,11 +61,6 @@ public class SinglyLinkedList<T> implements CRUD<T> {
         return false;
     }
 
-    /**
-     * @param data
-     * @return
-     */
-    @Override
     public boolean delete(T data) {
         if (sizeOfList == 0) {
             return false;
@@ -115,23 +97,47 @@ public class SinglyLinkedList<T> implements CRUD<T> {
         return false;
     }
 
-    /**
-     * @return
-     */
-    public boolean isEmpty() {
-        return sizeOfList() == 0;
+
+    @Override
+    public boolean contains(T var1) {
+        return false;
     }
 
-    /**
-     * @return
-     */
-    public int sizeOfList() {
-        return sizeOfList;
+    @Override
+    public boolean add(T var1) {
+        return false;
     }
 
-    /**
-     * @return
-     */
+    @Override
+    public boolean remove(Object var1) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> var1) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends T> var1) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> var1) {
+        return false;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
     @Override
     public String copyToString() {
         StringBuilder stringBuilder = new StringBuilder("\n");
@@ -148,62 +154,30 @@ public class SinglyLinkedList<T> implements CRUD<T> {
 
     }
 
-    /**
-     *
-     */
     private class Node {
         private T info;
         private Node nextRef;
 
-        /**
-         * Instantiates a new Node.
-         */
         public Node() {
         }
 
-        /**
-         * Instantiates a new Node.
-         *
-         * @param data    the data
-         * @param nextRef the next ref
-         */
         public Node(T data, Node nextRef) {
             this.info = data;
             this.nextRef = nextRef;
         }
 
-        /**
-         * Gets info.
-         *
-         * @return the info
-         */
         public T getInfo() {
             return info;
         }
 
-        /**
-         * Sets info.
-         *
-         * @param info the info
-         */
         public void setInfo(T info) {
             this.info = info;
         }
 
-        /**
-         * Gets next ref.
-         *
-         * @return the next ref
-         */
         public Node getNextRef() {
             return nextRef;
         }
 
-        /**
-         * Sets next ref.
-         *
-         * @param nextRef the next ref
-         */
         public void setNextRef(Node nextRef) {
             this.nextRef = nextRef;
         }
