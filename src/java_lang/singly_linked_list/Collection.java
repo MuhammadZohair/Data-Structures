@@ -8,15 +8,15 @@ public interface Collection<T> {
 
     int size();
 
-    boolean contains(T var1);
-
     boolean add(T var1);
 
-    boolean remove(Object var1);
+    boolean addAll(Collection<? extends T> var1);
+
+    boolean contains(T var1);
 
     boolean containsAll(Collection<?> var1);
 
-    boolean addAll(Collection<? extends T> var1);
+    boolean remove(Object var1);
 
     boolean removeAll(Collection<?> var1);
 
@@ -34,6 +34,12 @@ public interface Collection<T> {
 
         return removed;
     }
+
+    public T get(int index);
+
+    public T set(int index, T element);
+
+    public T peek();
 
     Iterator<T> iterator();
 

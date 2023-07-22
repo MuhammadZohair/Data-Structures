@@ -20,8 +20,9 @@ public class SinglyLinkedList<T> implements Collection<T> {
         return size() == 0;
     }
 
-    public void insert(T data) {
-        Node currentNode = new Node(data, null);
+    @Override
+    public boolean add(T var1) {
+        Node currentNode = new Node(var1, null);
 
         try {
             if (sizeOfList == 0) {
@@ -37,31 +38,46 @@ public class SinglyLinkedList<T> implements Collection<T> {
                 sizeOfList++;
                 lastNode.setNextRef(currentNode);
             }
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void insertAll(List<T> list) {
-        for (T currentItem : list) {
-            insert(currentItem);
-        }
-    }
+    @Override
+    public boolean addAll(Collection<? extends T> var1) {
 
-    public boolean update(T oldValue, T newValue) {
-
-        Node node = firstItem;
-        while (node.getNextRef() != null) {
-            if (node.getInfo() == oldValue) {
-                node.setInfo(newValue);
-                return true;
-            }
-            node = node.getNextRef();
-        }
+        // TODO: 24/03/2023 to be implemented
         return false;
     }
 
-    public boolean delete(T data) {
+    public boolean addAll(List<T> list) {
+        try {
+            for (T currentItem : list) {
+                add(currentItem);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean contains(T var1) {
+        // TODO: 24/03/2023 to be implemented
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> var1) {
+        // TODO: 24/03/2023 to be implemented
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object var1) {
         if (sizeOfList == 0) {
             return false;
         }
@@ -70,7 +86,7 @@ public class SinglyLinkedList<T> implements Collection<T> {
         Node previousNode = null;
 
         // first item is the one which should be deleted
-        if (firstItem.getInfo() == data) {
+        if (firstItem.getInfo() == var1) {
             firstItem = firstItem.getNextRef();
             sizeOfList--;
             return true;
@@ -78,7 +94,7 @@ public class SinglyLinkedList<T> implements Collection<T> {
 
         // middle item to be deleted
         while (currentNode.getNextRef() != null) {
-            if (currentNode.getInfo() == data) {
+            if (currentNode.getInfo() == var1) {
                 //delete node
                 previousNode.setNextRef(currentNode.getNextRef());
                 sizeOfList--;
@@ -89,7 +105,7 @@ public class SinglyLinkedList<T> implements Collection<T> {
         }
 
         //last item to be deleted
-        if (currentNode.getInfo() == data) {
+        if (currentNode.getInfo() == var1) {
             previousNode.setNextRef(null);
             sizeOfList--;
             return true;
@@ -97,45 +113,39 @@ public class SinglyLinkedList<T> implements Collection<T> {
         return false;
     }
 
-
-    @Override
-    public boolean contains(T var1) {
-        return false;
-    }
-
-    @Override
-    public boolean add(T var1) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object var1) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> var1) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends T> var1) {
-        return false;
-    }
-
     @Override
     public boolean removeAll(Collection<?> var1) {
+        // TODO: 24/03/2023 to be implemented
         return false;
+    }
+
+    @Override
+    public T get(int index) {
+        // TODO: 24/03/2023 to be implemented
+        return null;
+    }
+
+    @Override
+    public T set(int index, T element) {
+        // TODO: 24/03/2023 to be implemented
+        return null;
+    }
+
+    @Override
+    public T peek() {
+        // TODO: 24/03/2023 to be implemented
+        return null;
     }
 
     @Override
     public Iterator<T> iterator() {
+        // TODO: 24/03/2023 to be implemented
         return null;
     }
 
     @Override
     public void clear() {
-
+        // TODO: 24/03/2023 to be implemented
     }
 
     @Override
