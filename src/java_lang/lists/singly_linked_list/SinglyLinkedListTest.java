@@ -1,4 +1,4 @@
-package java_lang.singly_linked_list;
+package java_lang.lists.singly_linked_list;
 
 class SinglyLinkedListTest {
 

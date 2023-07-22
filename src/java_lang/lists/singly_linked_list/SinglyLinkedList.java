@@ -1,4 +1,6 @@
-package java_lang.singly_linked_list;
+package java_lang.lists.singly_linked_list;
+
+import java_lang.lists.Collection;
 
 import java.util.Iterator;
 import java.util.List;

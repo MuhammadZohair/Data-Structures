@@ -1,6 +1,6 @@
 package java_lang;
 
-import java_lang.singly_linked_list.SinglyLinkedList;
+import java_lang.lists.singly_linked_list.SinglyLinkedList;
 
 import java.util.LinkedList;
 

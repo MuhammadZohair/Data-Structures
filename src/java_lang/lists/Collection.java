@@ -1,4 +1,4 @@
-package java_lang.singly_linked_list;
+package java_lang.lists;
 
 import java.util.Iterator;
 import java.util.Objects;
