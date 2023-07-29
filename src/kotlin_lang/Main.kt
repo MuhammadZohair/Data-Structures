@@ -1,5 +1,5 @@
 package kotlin_lang
 
-class Main {
+fun main() {
 
 }
