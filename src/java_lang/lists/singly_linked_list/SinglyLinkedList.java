@@ -26,25 +26,19 @@ public class SinglyLinkedList<T> implements Collection<T> {
     public boolean add(T var1) {
         Node currentNode = new Node(var1, null);
 
-        try {
-            if (sizeOfList == 0) {
-                firstItem = currentNode;
-                sizeOfList++;
-            } else {
-                Node lastNode = firstItem;
+        if (firstItem == null) {
+            firstItem = currentNode;
+        } else {
+            Node lastNode = firstItem;
 
-                while (lastNode.getNextRef() != null) {
-                    lastNode = lastNode.getNextRef();
-                }
-
-                sizeOfList++;
-                lastNode.setNextRef(currentNode);
+            while (lastNode.getNextRef() != null) {
+                lastNode = lastNode.getNextRef();
             }
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+            lastNode.setNextRef(currentNode);
         }
+
+        sizeOfList++;
+        return true;
     }
 
     @Override
