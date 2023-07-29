@@ -5,8 +5,9 @@ interface Collection<T> {
 
     fun add(var1: T): Boolean
 
-    //    fun addAll(var1: Collection<out T>?): Boolean
-//
+    fun addAll(list: List<T>): Boolean
+
+
 //    operator fun contains(var1: T): Boolean
 //
 //    fun containsAll(var1: Collection<*>?): Boolean

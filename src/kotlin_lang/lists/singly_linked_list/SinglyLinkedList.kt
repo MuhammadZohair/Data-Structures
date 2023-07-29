@@ -8,25 +8,8 @@ class SinglyLinkedList<T> : Collection<T> {
     private var firstItem: Node<T>? = null
     private var sizeOfList: Int = 0
 
-
-    data class Node<T>(var info: T, var nextRef: Node<T>?)
-
     override fun size(): Int {
         return sizeOfList
-    }
-
-    override fun copyToString(): String? {
-        val stringBuilder: StringBuilder = StringBuilder()
-        var tempNode = firstItem
-        while (tempNode?.nextRef != null) {
-            stringBuilder.append(" ").append(tempNode.info).append(" ")
-            tempNode = tempNode.nextRef
-        }
-        stringBuilder.append(" ").append(tempNode?.info).append(" ")
-
-        stringBuilder.append("\n")
-        return stringBuilder.toString()
-
     }
 
     override fun add(var1: T): Boolean {
@@ -47,4 +30,28 @@ class SinglyLinkedList<T> : Collection<T> {
         sizeOfList++
         return true
     }
+
+
+    override fun addAll(list: List<T>): Boolean {
+        for (item in list) {
+            add(item)
+        }
+        return true
+    }
+
+    override fun copyToString(): String {
+        val stringBuilder: StringBuilder = StringBuilder()
+        var tempNode = firstItem
+        while (tempNode?.nextRef != null) {
+            stringBuilder.append(" ").append(tempNode.info).append(" ")
+            tempNode = tempNode.nextRef
+        }
+        stringBuilder.append(" ").append(tempNode?.info).append(" ")
+
+        stringBuilder.append("\n")
+        return stringBuilder.toString()
+
+    }
+
+    data class Node<T>(var info: T, var nextRef: Node<T>?)
 }
