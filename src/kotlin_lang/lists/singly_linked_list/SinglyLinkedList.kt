@@ -31,12 +31,22 @@ class SinglyLinkedList<T> : Collection<T> {
         return true
     }
 
-
     override fun addAll(list: List<T>): Boolean {
         for (item in list) {
             add(item)
         }
         return true
+    }
+
+    override fun contains(item: T): Boolean {
+        var tempNode = firstItem
+        while (tempNode?.nextRef != null) {
+            if (tempNode.info == item) {
+                return true
+            }
+            tempNode = tempNode.nextRef
+        }
+        return tempNode?.info == item
     }
 
     override fun copyToString(): String {

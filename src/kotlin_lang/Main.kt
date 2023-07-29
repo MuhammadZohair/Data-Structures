@@ -15,6 +15,8 @@ fun main() {
     val list = listOf("A", "Z", "W")
     singlyLinkedList.addAll(list)
     println(singlyLinkedList.copyToString())
+    println(singlyLinkedList.contains("Q"))
+
 
 
 }
