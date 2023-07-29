@@ -10,8 +10,8 @@ interface Collection<T> {
 
     operator fun contains(item: T): Boolean
 
-//    fun containsAll(var1: Collection<*>?): Boolean
-//
+    fun containsAll(list: List<T>): Boolean
+
 //    fun remove(var1: Any?): Boolean
 //
 //    fun removeAll(var1: Collection<*>?): Boolean

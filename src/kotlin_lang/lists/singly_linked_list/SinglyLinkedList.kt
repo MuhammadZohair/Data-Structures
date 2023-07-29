@@ -12,6 +12,14 @@ class SinglyLinkedList<T> : Collection<T> {
         return sizeOfList
     }
 
+    override fun containsAll(list: List<T>): Boolean {
+        for (item in list) {
+            if (!contains(item))
+                return false
+        }
+        return true
+    }
+
     override fun add(var1: T): Boolean {
         val newNode: Node<T> = Node(var1, null)
 
