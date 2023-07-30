@@ -12,4 +12,11 @@ fun main() {
 //    singlyLinkedList.add("Awais")
 //    println(singlyLinkedList.copyToString())
 
+    println("Hello, world!!!")
+
+    val list: java.util.LinkedList<Int> = java.util.LinkedList<Int>()
+
+    list.add(0)
+    list.add(1, 1)
+
 }

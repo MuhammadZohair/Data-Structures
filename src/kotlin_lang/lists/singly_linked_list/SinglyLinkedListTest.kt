@@ -1,6 +1,7 @@
 package kotlin_lang.lists.singly_linked_list
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -35,6 +36,36 @@ class SinglyLinkedListTest {
         linkedList.add(1)
         linkedList.add(2)
         assertEquals(2, linkedList.head?.nextRef?.nextRef?.info)
+    }
+
+    @Test
+    fun addByIndex_listIsEmpty_elementAddedToHead() {
+        linkedList.add(0, 0)
+        assertEquals(0, linkedList.head?.info)
+    }
+
+    @Test
+    fun addByIndex_listIsEmpty_indexInRange_elementAddedToHead() {
+
+        linkedList.add(0, 2)
+        assertEquals(2, linkedList.head?.info)
+    }
+
+    @Test
+    fun addByIndex_listNotEmpty_indexInRange_elementAddedToHead() {
+
+        linkedList.add(0, 1)
+        linkedList.add(1, 2)
+        linkedList.add(2, 3)
+        assertEquals(3, linkedList.head?.nextRef?.nextRef?.info)
+    }
+
+    @Test
+    fun addByIndex_indexOutOfRange_throwsException() {
+        assertThrows(IndexOutOfBoundsException::class.java) {
+            linkedList.add(4, 1)
+        }
+
     }
 
 
