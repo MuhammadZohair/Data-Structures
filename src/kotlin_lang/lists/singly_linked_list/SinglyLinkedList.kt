@@ -5,69 +5,21 @@ import kotlin_lang.lists.Collection
 
 class SinglyLinkedList<T> : Collection<T> {
 
-    private var firstItem: Node<T>? = null
-    private var sizeOfList: Int = 0
+    var head: Node<T>? = null
 
-    override fun size(): Int {
-        return sizeOfList
-    }
+    override fun add(element: T): Boolean {
+        return if (head == null) {
+            head = Node(element, null)
+            true
+        } else {
+            var currentNode = head
 
-    override fun containsAll(list: List<T>): Boolean {
-        for (item in list) {
-            if (!contains(item))
-                return false
-        }
-        return true
-    }
-
-    override fun add(var1: T): Boolean {
-        val newNode: Node<T> = Node(var1, null)
-
-        firstItem?.let {
-            var lastNode = it
-            while (lastNode.nextRef != null) {
-                lastNode = lastNode.nextRef!!
+            while (currentNode?.nextRef != null) {
+                currentNode = currentNode.nextRef
             }
-            lastNode.nextRef = newNode
-        } ?: run {
-            firstItem = newNode
+            currentNode?.nextRef = Node(element, null)
+            return true
         }
-
-        firstItem?.let { } ?: run { }
-
-        sizeOfList++
-        return true
-    }
-
-    override fun addAll(list: List<T>): Boolean {
-        for (item in list) {
-            add(item)
-        }
-        return true
-    }
-
-    override fun contains(item: T): Boolean {
-        var tempNode = firstItem
-        while (tempNode?.nextRef != null) {
-            if (tempNode.info == item) {
-                return true
-            }
-            tempNode = tempNode.nextRef
-        }
-        return tempNode?.info == item
-    }
-
-    override fun copyToString(): String {
-        val stringBuilder: StringBuilder = StringBuilder()
-        var tempNode = firstItem
-        while (tempNode?.nextRef != null) {
-            stringBuilder.append(" ").append(tempNode.info).append(" ")
-            tempNode = tempNode.nextRef
-        }
-        stringBuilder.append(" ").append(tempNode?.info).append(" ")
-
-        stringBuilder.append("\n")
-        return stringBuilder.toString()
 
     }
 

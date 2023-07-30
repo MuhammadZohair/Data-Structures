@@ -12,10 +12,4 @@ fun main() {
 //    singlyLinkedList.add("Awais")
 //    println(singlyLinkedList.copyToString())
 
-    val list = listOf("A", "Z", "W")
-    singlyLinkedList.addAll(list)
-    println(singlyLinkedList.copyToString())
-    println(singlyLinkedList.containsAll(listOf("A", "Z", "W")))
-
-
 }
