@@ -14,14 +14,14 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    fun addToList_listIsEmpty_elementAddedToHead() {
+    fun appendAtEnd_listIsEmpty_elementAddedToHead() {
 
         linkedList.add(0)
         assertEquals(0, linkedList.head?.info)
     }
 
     @Test
-    fun addToList_listContainsOne_elementAddedAtEnd() {
+    fun appendAtEnd_listContainsOne_elementAddedAtEnd() {
 
         linkedList.add(0)
         linkedList.add(1)
@@ -29,11 +29,13 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    fun addToList_listContainsMany_elementAddedAtEnd() {
+    fun appendAtEnd_listContainsMany_elementAddedAtEnd() {
 
         linkedList.add(0)
         linkedList.add(1)
         linkedList.add(2)
         assertEquals(2, linkedList.head?.nextRef?.nextRef?.info)
     }
+
+
 }
