@@ -8,19 +8,17 @@ class SinglyLinkedList<T> : Collection<T> {
     var head: Node<T>? = null
 
     override fun add(element: T): Boolean {
-        return if (head == null) {
-            head = Node(element, null)
-            true
-        } else {
-            var currentNode = head
-
-            while (currentNode?.nextRef != null) {
-                currentNode = currentNode.nextRef
+        head?.let {
+            var currentNode = it
+            while (currentNode.nextRef != null) {
+                currentNode = currentNode.nextRef!!
             }
-            currentNode?.nextRef = Node(element, null)
+            currentNode.nextRef = Node(element, null)
+            return true
+        } ?: run {
+            head = Node(element, null)
             return true
         }
-
     }
 
     data class Node<T>(var info: T, var nextRef: Node<T>?)
