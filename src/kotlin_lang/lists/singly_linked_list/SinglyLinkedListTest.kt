@@ -39,20 +39,22 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    fun addByIndex_listIsEmpty_elementAddedToHead() {
-        linkedList.add(0, 0)
-        assertEquals(0, linkedList.head?.info)
+    fun addByIndex_indexOutOfRange_throwsException() {
+        assertThrows(IndexOutOfBoundsException::class.java) {
+            linkedList.add(4, 1)
+        }
+
     }
 
     @Test
-    fun addByIndex_listIsEmpty_indexInRange_elementAddedToHead() {
+    fun addByIndex_listIsEmpty_elementAddedToHead() {
 
         linkedList.add(0, 2)
         assertEquals(2, linkedList.head?.info)
     }
 
     @Test
-    fun addByIndex_listNotEmpty_indexInRange_elementAddedToHead() {
+    fun addByIndex_listNotEmpty_elementAddedAtEnd() {
 
         linkedList.add(0, 1)
         linkedList.add(1, 2)
@@ -61,11 +63,13 @@ class SinglyLinkedListTest {
     }
 
     @Test
-    fun addByIndex_indexOutOfRange_throwsException() {
-        assertThrows(IndexOutOfBoundsException::class.java) {
-            linkedList.add(4, 1)
-        }
+    fun addByIndex_listNotEmpty_elementAddedToHead() {
 
+        linkedList.add(0, 1)
+        linkedList.add(1, 2)
+        linkedList.add(2, 3)
+        linkedList.add(0, -1)
+        assertEquals(-1, linkedList.head?.info)
     }
 
 

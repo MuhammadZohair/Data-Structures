@@ -27,12 +27,15 @@ class SinglyLinkedList<T> : Collection<T> {
     override fun add(index: Int, element: T) {
         if (index > sizeOfList) throw IndexOutOfBoundsException("Index not accessible")
 
-        if (index == sizeOfList) {
-            add(element)
-            return
-        }
-
         head?.let {
+            var currentNode = head
+
+            for (i in 0..index) {
+                currentNode = currentNode?.nextRef
+            }
+
+            currentNode?.nextRef = Node(element, currentNode?.nextRef)
+
             //todo: find the position and then place it
         } ?: run {
             head = Node(element, null)
