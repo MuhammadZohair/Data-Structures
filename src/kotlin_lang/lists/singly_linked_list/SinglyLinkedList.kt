@@ -27,7 +27,14 @@ class SinglyLinkedList<T> : Collection<T> {
     override fun add(index: Int, element: T) {
         if (index > sizeOfList) throw IndexOutOfBoundsException("Index not accessible")
 
+        if (index == sizeOfList) {
+            add(element)
+            return
+        }
+
         head?.let {
+            //todo: find the position and then place it
+        } ?: run {
             head = Node(element, null)
         }
 
